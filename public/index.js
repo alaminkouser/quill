@@ -1,40 +1,24 @@
-import sqlite3Worker1Promiser from "./jswasm/sqlite3.mjs";
+/**
+ * @type {null|{"meta":{"created":string},"quillList":[{"contentType":string,"content":string,"created":string,"modified":string,"id":string}]}}
+ */
+let DATA = null;
 
-const log = (...args) => console.log(...args);
-const error = (...args) => console.error(...args);
+const createButton = document.querySelector("#createButton");
+const loadButton = document.querySelector("#loadButton");
+const dialog = document.querySelector("dialog");
 
-(async () => {
-  try {
-    log('Loading and initializing SQLite3 module...');
 
-    const promiser = await new Promise((resolve) => {
-      const _promiser = sqlite3Worker1Promiser({
-        onready: () => {
-          resolve(_promiser);
-        },
-      });
-    });
-
-    log('Done initializing. Running demo...');
-
-    let response;
-
-    response = await promiser('config-get', {});
-    log('Running SQLite3 version', response.result.version.libVersion);
-
-    response = await promiser('open', {
-      filename: 'file:mydb.sqlite3?vfs=opfs',
-    });
-    const { dbId } = response;
-    log(
-      'OPFS is available, created persisted database at',
-      response.result.filename.replace(/^file:(.*?)\?vfs=opfs$/, '$1'),
-    );
-    console.log(dbId);
-  } catch (err) {
-    if (!(err instanceof Error)) {
-      err = new Error(err.result.message);
-    }
-    error(err.name, err.message);
+createButton.addEventListener("click", (_) => {
+  DATA = {
+    "meta": {
+      "created": new Date().toISOString()
+    },
+    "quillList": []
   }
-})();
+  document.querySelector(".init").remove();
+  document.querySelector("#app").classList.remove("hidden");
+});
+
+newQuill.addEventListener("click", (_) => {
+  dialog.open = true;
+});

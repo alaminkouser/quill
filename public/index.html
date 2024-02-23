@@ -10,14 +10,20 @@
 
 <body>
     <div class="init">
-        <button id="createButton">Create New DB</button>
-        <button id="loadButton">Load DB</button>
+        <button id="createButton">NEW</button>
+        <button id="loadButton">LOAD</button>
     </div>
-    <div class="init">
-        Foot Note
-    </div>
-    <div class="app">
-        APP
+    <div id="app" class="hidden">
+        <div>
+            <button id="newQuill">NEW</button>
+            <input id="searchQuill" type="text">
+        </div>
+        <div id="quillList">
+            <dialog>
+                <div><button id="saveQuill">SAVE</button><button id="discardQuill">DISCARD</button></div>
+                <textarea id="quillTextarea"></textarea>
+            </dialog>
+        </div>
     </div>
     <script type="module" src="./index.js"></script>
 </body>
