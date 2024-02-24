@@ -34,11 +34,24 @@ body {
 #quillTextarea {
   resize: none;
   overflow-y: auto;
-  height: 5ch;
-  max-height: min(80ch, );
+  min-height: 4ch;
+  max-height: 80vh;
   max-width: 100%;
 }
 
 #quillTextarea::-webkit-scrollbar {
   width: 0px;
+}
+
+#quillList>div {
+  padding: 1ch;
+  border: 1px solid black;
+  border-radius: 1ch;
+  margin: 1ch;
+}
+
+#app>#topAnchor {
+  padding: 1ch;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
 }

@@ -14,9 +14,10 @@
         <button id="loadButton">LOAD</button>
     </div>
     <div id="app" class="hidden">
-        <div>
+        <div id="topAnchor">
             <button id="newQuill">NEW</button>
-            <input id="searchQuill" type="text">
+            <input id="searchQuill" type="text" placeholder="SEARCH">
+            <button id="downloadQuill">DOWNLOAD</button>
         </div>
         <div id="quillList">
         </div>
@@ -25,7 +26,7 @@
                 <button id="saveQuill">SAVE</button>
                 <button id="discardQuill">DISCARD</button>
             </div>
-            <div><textarea id="quillTextarea"></textarea></div>
+            <div><textarea id="quillTextarea" placeholder="..."></textarea></div>
         </dialog>
     </div>
     <script type="module" src="./index.js"></script>
