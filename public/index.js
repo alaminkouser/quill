@@ -123,6 +123,12 @@ downloadQuill.addEventListener("click", (_) => {
     }
   });
   downloadString(JSON.stringify(DATA), "text/plain", new Date().getTime() + ".quill.json");
+  DATA.quillList.forEach((quill) => {
+    switch (quill.contentType) {
+      case "text/plain":
+        quill.content = atob(quill.content);
+    }
+  });
 });
 
 loadButton.addEventListener("click", (_) => {
