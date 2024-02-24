@@ -18,10 +18,27 @@ body {
   width: min(80ch, 100vw);
   display: grid;
   grid-template-rows: auto 1fr;
+  grid-column-end: 1;
 }
 
-#quillList>dialog{
+#app:not(.hidden)>dialog[open] {
+  width: min(80ch, 80vw);
+}
+
+#app:not(.hidden)>dialog[open]>div {
   display: grid;
-  grid-template-rows: auto auto;
-  width: min(80ch, 100vw);
+  grid-template-columns: 1fr auto;
+  width: 100%;
+}
+
+#quillTextarea {
+  resize: none;
+  overflow-y: auto;
+  height: 5ch;
+  max-height: min(80ch, );
+  max-width: 100%;
+}
+
+#quillTextarea::-webkit-scrollbar {
+  width: 0px;
 }
